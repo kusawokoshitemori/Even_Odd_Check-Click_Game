@@ -2,9 +2,45 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>GAME PAGE</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timer</title>
     <link rel="stylesheet" href="/css/style.css" />
   </head>
-
+  <!--
   <body></body>
+</html>
+-->
+
+  <body>
+    <div id="countdown"></div>
+
+    <script>
+      // カウントダウン開始時刻を設定（例: 10分後）
+      const countdownStart = new Date();
+      countdownStart.setMinutes(countdownStart.getMinutes() + 1);
+
+      function updateCountdown() {
+        const now = new Date();
+        const difference = countdownStart - now - 1;
+
+        // 残り時間を計算
+        const seconds = Math.floor(difference / 1000);
+
+        // カウントダウンを表示
+        document.getElementById("countdown").innerHTML = `残り ${seconds}秒`;
+
+        // タイマーが0になったら停止
+        if (difference <= 0) {
+          clearInterval(timerInterval);
+          document.getElementById("countdown").innerHTML = "終了";
+        }
+      }
+
+      // 1秒ごとに更新
+      const timerInterval = setInterval(updateCountdown, 1000);
+
+      // 最初の更新
+      updateCountdown();
+    </script>
+  </body>
 </html>
