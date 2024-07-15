@@ -48,7 +48,7 @@ body {
 }
 
 #countdown {
-  font-size: 50px;
+  font-size: 60px;
   flex: 1;
   display: flex;
   justify-content: center;
@@ -62,7 +62,7 @@ body {
   align-items: center;
 }
 #Score_count {
-  font-size: 50px;
+  font-size: 60px;
   flex: 1;
   display: flex;
   justify-content: center;
@@ -93,4 +93,21 @@ body {
 #Even_number_prediction {
   margin-left: 20%;
   background-color: #4572ee;
+}
+
+/*タイトルに戻るのやつ*/
+.restart_title_button {
+  height: 7vh;
+  width: 40%;
+  margin: 3vh 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #333;
+  background-color: aquamarine;
+
+  font-size: 45px;
+}
+.hidden {
+  display: none;
 }

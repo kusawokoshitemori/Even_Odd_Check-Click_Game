@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Timer</title>
+    <title>Main Game</title>
     <link rel="stylesheet" href="/css/style.css" />
   </head>
   <!--
@@ -36,10 +36,15 @@
       </div>
     </div>
 
+    <div id="return_title_button" class="hidden" onclick="return_title()">
+      タイトルに戻る
+    </div>
+
     <script>
       // カウントダウン開始時刻を設定（例: 10分後）
       const countdownStart = new Date();
       countdownStart.setSeconds(countdownStart.getSeconds() + 31);
+      let timeup = true;
 
       function updateCountdown() {
         const now = new Date();
@@ -51,10 +56,17 @@
         // カウントダウンを表示
         document.getElementById("countdown").innerHTML = `残り ${seconds}秒`;
 
+        const return_title_button = document.getElementById(
+          "return_title_button"
+        );
+
         // タイマーが0になったら停止
         if (difference <= 0) {
           clearInterval(timerInterval);
-          document.getElementById("countdown").innerHTML = "終了";
+          document.getElementById("countdown").innerHTML = "TIME UP";
+          return_title_button.classList.remove("hidden"); // hiddenクラスを削除して表示させる
+          return_title_button.classList.add("restart_title_button"); // restart_title_buttonクラスを追加
+          timeup = false;
         }
       }
 
@@ -70,13 +82,15 @@
         return Math.floor(Math.random() * 99) + 1;
       }
       function CheckAnswer(prediction) {
-        if (random_number % 2 === prediction) {
+        if (random_number % 2 === prediction && timeup) {
           score++;
           random_number = generateRandomNumber();
           document.getElementById("Score_count").innerHTML = `Score : ${score}`;
           document.getElementById(
             "random_generate_number"
           ).innerHTML = `${random_number}`;
+        } else if (!timeup) {
+          console.log("動いた！");
         } else {
           score--;
           random_number = generateRandomNumber();
@@ -91,6 +105,10 @@
       document.getElementById(
         "random_generate_number"
       ).innerHTML = `${random_number}`;
+
+      function return_title() {
+        window.location.href = "/";
+      }
     </script>
   </body>
 </html>
