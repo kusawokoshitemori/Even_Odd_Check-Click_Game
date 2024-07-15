@@ -36,9 +36,6 @@
       </div>
     </div>
 
-    <!--残り秒数が0になったら終了って大きく出る-->
-    <div id="conuntdown_Stop_message">終了</div>
-
     <script>
       // カウントダウン開始時刻を設定（例: 10分後）
       const countdownStart = new Date();
@@ -58,8 +55,6 @@
         if (difference <= 0) {
           clearInterval(timerInterval);
           document.getElementById("countdown").innerHTML = "終了";
-          document.getElementById("conuntdown_Stop_message").style.display =
-            "block";
         }
       }
 
@@ -77,6 +72,13 @@
       function CheckAnswer(prediction) {
         if (random_number % 2 === prediction) {
           score++;
+          random_number = generateRandomNumber();
+          document.getElementById("Score_count").innerHTML = `Score : ${score}`;
+          document.getElementById(
+            "random_generate_number"
+          ).innerHTML = `${random_number}`;
+        } else {
+          score--;
           random_number = generateRandomNumber();
           document.getElementById("Score_count").innerHTML = `Score : ${score}`;
           document.getElementById(
