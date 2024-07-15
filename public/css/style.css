@@ -1,13 +1,40 @@
-/*memo*/
+/*top.ejsの内容*/
+body {
+  height: 100vh;
+  background-image: url(/images/flower_main_page.jpeg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px; /* ボタン間の間隔を調整 */
 }
+/*タイトルの設定*/
 .top_title {
-  font-size: 300px;
+  margin-top: 20vh;
+  margin-bottom: 5vh;
+  font-size: 75px;
+  font-weight: bold;
 }
+/*ボタン設定*/
 .big_button {
-  font-size: 18px;
+  height: 12vh;
+  width: 40%;
+  margin-bottom: 4vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #333;
+
+  border-radius: 10px;
+  /*問題：ウィンドを小さくした時に文字がはみ出してしまう*/
+  font-size: 60px;
+}
+/*ボタンの色*/
+.game_start_button {
+  background-color: yellow;
+}
+.rule_explanation_buttom {
+  background-color: aquamarine;
 }
