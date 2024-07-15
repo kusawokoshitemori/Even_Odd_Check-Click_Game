@@ -13,14 +13,31 @@
 
   <body>
     <!--残り秒数を表示-->
-    <div id="countdown"></div>
+    <div class="game_page_container">
+      <div id="countdown"></div>
+      <div id="random_generate_number"></div>
+      <div id="Score_count"></div>
+    </div>
+
+    <div class="number_prediction">
+      <div
+        id="Odd_number_prediction"
+        onclick="CheckAnswer(1)"
+        class="prediction_buttom"
+      >
+        奇数
+      </div>
+      <div
+        id="Even_number_prediction"
+        onclick="CheckAnswer(0)"
+        class="prediction_buttom"
+      >
+        偶数
+      </div>
+    </div>
+
     <!--残り秒数が0になったら終了って大きく出る-->
     <div id="conuntdown_Stop_message">終了</div>
-
-    <div id="random_generate_number"></div>
-    <div id="Score_count"></div>
-    <div id="Odd_number_prediction" onclick="CheckAnswer(1)">奇数</div>
-    <div id="Even_number_prediction" onclick="CheckAnswer(0)">偶数</div>
 
     <script>
       // カウントダウン開始時刻を設定（例: 10分後）
