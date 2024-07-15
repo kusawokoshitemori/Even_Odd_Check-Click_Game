@@ -38,3 +38,8 @@ body {
 .rule_explanation_buttom {
   background-color: aquamarine;
 }
+
+/*ここからgame_page.ejs*/
+#conuntdown_Stop_message {
+  display: none;
+}

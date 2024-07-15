@@ -17,10 +17,15 @@
     <!--残り秒数が0になったら終了って大きく出る-->
     <div id="conuntdown_Stop_message">終了</div>
 
+    <div id="random_generate_number"></div>
+    <div id="Score_count"></div>
+    <div id="Odd_number_prediction" onclick="CheckAnswer(1)">奇数</div>
+    <div id="Even_number_prediction" onclick="CheckAnswer(0)">偶数</div>
+
     <script>
       // カウントダウン開始時刻を設定（例: 10分後）
       const countdownStart = new Date();
-      countdownStart.setMinutes(countdownStart.getMinutes() + 1);
+      countdownStart.setSeconds(countdownStart.getSeconds() + 31);
 
       function updateCountdown() {
         const now = new Date();
@@ -46,14 +51,7 @@
 
       // 最初の更新
       updateCountdown();
-    </script>
 
-    <div id="random_generate_number"></div>
-    <div id="Score_count"></div>
-    <div id="Odd_number_prediction" onclick="CheckAnswer(1)">奇数</div>
-    <div id="Even_number_prediction" onclick="CheckAnswer(0)">偶数</div>
-
-    <script>
       let score = 0;
       //1から99までの乱数を出す
       function generateRandomNumber() {
