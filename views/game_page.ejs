@@ -12,7 +12,10 @@
 -->
 
   <body>
+    <!--残り秒数を表示-->
     <div id="countdown"></div>
+    <!--残り秒数が0になったら終了って大きく出る-->
+    <div id="conuntdown_Stop_message">終了</div>
 
     <script>
       // カウントダウン開始時刻を設定（例: 10分後）
@@ -33,6 +36,8 @@
         if (difference <= 0) {
           clearInterval(timerInterval);
           document.getElementById("countdown").innerHTML = "終了";
+          document.getElementById("conuntdown_Stop_message").style.display =
+            "block";
         }
       }
 
@@ -41,6 +46,34 @@
 
       // 最初の更新
       updateCountdown();
+    </script>
+
+    <div id="random_generate_number"></div>
+    <div id="Score_count"></div>
+    <div id="Odd_number_prediction" onclick="CheckAnswer(1)">奇数</div>
+    <div id="Even_number_prediction" onclick="CheckAnswer(0)">偶数</div>
+
+    <script>
+      let score = 0;
+      //1から99までの乱数を出す
+      function generateRandomNumber() {
+        return Math.floor(Math.random() * 99) + 1;
+      }
+      function CheckAnswer(prediction) {
+        if (random_number % 2 === prediction) {
+          score++;
+          random_number = generateRandomNumber();
+          document.getElementById("Score_count").innerHTML = `Score : ${score}`;
+          document.getElementById(
+            "random_generate_number"
+          ).innerHTML = `${random_number}`;
+        }
+      }
+      let random_number = generateRandomNumber();
+      document.getElementById("Score_count").innerHTML = `Score : ${score}`;
+      document.getElementById(
+        "random_generate_number"
+      ).innerHTML = `${random_number}`;
     </script>
   </body>
 </html>
