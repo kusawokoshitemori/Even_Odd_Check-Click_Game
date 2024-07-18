@@ -4,6 +4,7 @@ body {
   background-image: url(/images/flower_main_page.jpeg);
   background-size: cover;
   background-repeat: no-repeat;
+  overflow: hidden;
 }
 .top_page_container {
   display: flex;
