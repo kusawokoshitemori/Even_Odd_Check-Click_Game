@@ -5,6 +5,11 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   overflow: hidden;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 .top_page_container {
   display: flex;
