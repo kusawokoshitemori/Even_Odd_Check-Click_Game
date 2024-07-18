@@ -19,6 +19,10 @@ app.get("/game_rule", (req, res) => {
   res.render("game_rule.ejs");
 });
 
+app.get("/ranking", (req, res) => {
+  res.render("ranking.ejs");
+});
+
 // サーバーを起動するコード
 app.listen(3000, () => {
   console.log("Server is running on http://localhost:3000");
