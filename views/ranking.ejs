@@ -8,6 +8,24 @@
   </head>
 
   <body>
-    <h1>ここにランキングを表示</h1>
+    <ul>
+      <li>ランキングの登録にはユーザーネームの入力が必要です</li>
+      <li>同じプレイヤーネームの場合は良い結果が上書きされます</li>
+    </ul>
+
+    <form action="/save-username" method="POST">
+      <label for="username">ユーザーネーム：</label>
+      <input type="text" id="username" name="username" />
+      <button type="submit">保存</button>
+    </form>
+
+    <div class="ranking_display">
+      <div class="prediction_buttom High_Score_ranking">
+        ハイスコア<br />ランキング
+      </div>
+      <div class="prediction_buttom All_Player_Score_distribution">
+        全プレイヤーの<br />スコア分布
+      </div>
+    </div>
   </body>
 </html>

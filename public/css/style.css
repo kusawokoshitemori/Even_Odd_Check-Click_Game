@@ -48,6 +48,9 @@ body {
 .rule_explanation_buttom {
   background-color: aquamarine;
 }
+.ranking_display_buttom {
+  background-color: #98ff98;
+}
 
 /*ここからgame_page.ejs*/
 .game_page_container {
@@ -120,4 +123,20 @@ body {
 }
 .hidden {
   display: none;
+}
+
+/*ランキングのとこ*/
+.High_Score_ranking {
+  width: 40%;
+  margin-left: 5%;
+  font-size: 70px;
+}
+.All_Player_Score_distribution {
+  width: 40%;
+  margin-left: 10%;
+  font-size: 70px;
+}
+.ranking_display {
+  display: flex;
+  align-items: center;
 }
