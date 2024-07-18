@@ -23,6 +23,7 @@ body {
   font-size: 75px;
   font-weight: bold;
 }
+
 /*ボタン設定*/
 .big_button {
   height: 12vh;
@@ -36,6 +37,9 @@ body {
   border-radius: 10px;
   /*問題：ウィンドを小さくした時に文字がはみ出してしまう*/
   font-size: 60px;
+
+  color: black;
+  text-decoration: none;
 }
 /*ボタンの色*/
 .game_start_button {
