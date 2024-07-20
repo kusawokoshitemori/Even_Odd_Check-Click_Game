@@ -2,6 +2,9 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 
+// プレイヤーネームをグローバルに管理
+let playerName = "Guest";
+
 // テンプレートエンジンとしてEJSを設定
 app.set("view engine", "ejs");
 app.set("views", "views");
@@ -22,7 +25,7 @@ app.get("/game_rule", (req, res) => {
 });
 
 app.get("/ranking", (req, res) => {
-  res.render("ranking.ejs");
+  res.render("ranking.ejs", { playerName });
 });
 
 // サーバーを起動するコード
