@@ -1,8 +1,10 @@
 const express = require("express");
+const bodyParser = require("body-parser");
 const app = express();
 
 // テンプレートエンジンとしてEJSを設定
 app.set("view engine", "ejs");
+app.set("views", "views");
 
 // 静的ファイルを提供するための設定を追加
 app.use(express.static("public"));

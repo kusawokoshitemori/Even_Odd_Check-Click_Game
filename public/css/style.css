@@ -141,3 +141,20 @@ body {
   display: flex;
   align-items: center;
 }
+
+/*名前入力　変更予定*/
+.name_input {
+  font-size: 24px;
+  margin-top: 20px;
+  padding: 10px;
+  border: 2px solid #333; /* 枠線の色と太さの変更 */
+  border-radius: 5px; /* 角丸の追加 */
+  background-color: #ffff72; /* 背景色の変更 */
+  color: #333; /* 文字色の変更 */
+  width: 80%; /* 入力フィールドの幅を調整 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* ボックスシャドウの追加 */
+}
+.name_input:focus {
+  border-color: #555; /* フォーカス時の枠線の色 */
+  outline: none; /* デフォルトのフォーカスアウトラインを削除 */
+}
