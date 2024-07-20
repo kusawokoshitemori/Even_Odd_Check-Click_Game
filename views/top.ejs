@@ -20,5 +20,10 @@
         >ランキング</a
       >
     </div>
+    <%if (playerName !== "ランキングから名前を入力してください"){%>
+    <h1>ようこそ<%= playerName %>!</h1>
+    <%}else{%>
+    <h1><%= playerName %>!</h1>
+    <%}%>
   </body>
 </html>

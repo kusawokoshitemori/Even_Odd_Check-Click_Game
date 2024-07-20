@@ -13,15 +13,10 @@
       <li>同じプレイヤーネームの場合は良い結果が上書きされます</li>
     </ul>
 
-    <input
-      type="text"
-      id="nameInput"
-      name=""
-      class="name_input"
-      value="<%= playerName %>"
-    />
-
-    <button type="username_submit">値を取得</button>
+    <form action="/submit_username" method="POST">
+      <input type="text" name="input_playerName" />
+      <button type="submit">値を取得</button>
+    </form>
 
     <div class="ranking_display">
       <div class="prediction_buttom High_Score_ranking">
@@ -31,5 +26,6 @@
         あなたの<br />ベストスコア
       </div>
     </div>
+    <h1>ようこそ<%= playerName %>!</h1>
   </body>
 </html>
