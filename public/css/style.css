@@ -98,6 +98,7 @@ body {
 
   border-radius: 15px;
   font-size: 120px;
+  text-align: center;
 }
 #Odd_number_prediction {
   margin-left: 10%;
@@ -131,7 +132,7 @@ body {
   margin-left: 5%;
   font-size: 70px;
 }
-.All_Player_Score_distribution {
+.Your_Best_Score_distribution {
   width: 40%;
   margin-left: 10%;
   font-size: 70px;
