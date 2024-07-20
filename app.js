@@ -1,6 +1,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const mysql = require("mysql");
 const app = express();
+const mysql = require("mysql");
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -10,6 +12,15 @@ let playerName = "ランキングから名前を入力してください";
 // テンプレートエンジンとしてEJSを設定
 app.set("view engine", "ejs");
 app.set("views", "views");
+
+//connection poolを作成
+const pool = mysql.createPool({
+  connectionLimit: 10,
+  host: "",
+  user: "",
+  passward: "",
+  database: "Even_Odd_Check_Game_Score",
+});
 
 // 静的ファイルを提供するための設定を追加
 app.use(express.static("public"));
