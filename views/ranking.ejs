@@ -19,13 +19,20 @@
     </form>
 
     <div class="ranking_display">
-      <div class="prediction_buttom High_Score_ranking">
+      <a
+        class="prediction_buttom High_Score_ranking"
+        href="/High_Score_ranking"
+      >
         ハイスコア<br />ランキング
-      </div>
-      <div class="prediction_buttom Your_Best_Score_distribution">
+      </a>
+      <a class="prediction_buttom Your_Best_Score_distribution">
         あなたの<br />ベストスコア
-      </div>
+      </a>
     </div>
+    <%if (playerName !== "ランキングから名前を入力してください"){%>
     <h1>ようこそ<%= playerName %>!</h1>
+    <%}else{%>
+    <h1><%= playerName %>!</h1>
+    <%}%>
   </body>
 </html>

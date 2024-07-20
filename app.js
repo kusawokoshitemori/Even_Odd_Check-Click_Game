@@ -30,10 +30,15 @@ app.get("/ranking", (req, res) => {
   res.render("ranking.ejs", { playerName });
 });
 
+//名前を変更するプログラム
 app.post("/submit_username", (req, res) => {
   playerName =
     req.body.input_playerName.trim() || "ランキングから名前を入力してください"; // プレイヤーネームが空なら'Guest'
   res.redirect("/"); // トップ画面にリダイレクト
+});
+
+app.get("/High_Score_ranking", (req, res) => {
+  res.render("High_Score_ranking.ejs", { playerName });
 });
 
 // サーバーを起動するコード
