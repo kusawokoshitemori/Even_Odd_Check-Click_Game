@@ -2,7 +2,6 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mysql = require("mysql");
 const app = express();
-const mysql = require("mysql");
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -15,12 +14,24 @@ app.set("views", "views");
 
 //connection poolを作成
 const pool = mysql.createPool({
+  //同時接続数
   connectionLimit: 10,
-  host: "",
-  user: "",
-  passward: "",
+  host: "localhost",
+  user: "kusa",
+  password: "kusawokoshitemori",
   database: "Even_Odd_Check_Game_Score",
 });
+
+/* 接続プールが動くかチェック
+pool.getConnection((err, connection) => {
+  if (err) {
+    console.error("データベースへの接続に失敗しました:", err);
+    return;
+  }
+  console.log("データベースに接続しました");
+  // 接続を解放
+  connection.release();
+});*/
 
 // 静的ファイルを提供するための設定を追加
 app.use(express.static("public"));

@@ -63,6 +63,11 @@
           return_title_button.classList.remove("hidden"); // hiddenクラスを削除して表示させる
           return_title_button.classList.add("restart_title_button"); // restart_title_buttonクラスを追加
           timeup = false;
+
+          if (!send_MySQL_message) {
+            //ここにデータを送る処理
+            send_MySQL_message = true;
+          }
         }
       }
 
