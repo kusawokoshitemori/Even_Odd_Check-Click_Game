@@ -67,22 +67,56 @@ app.get("/High_Score_ranking", (req, res) => {
   res.render("High_Score_ranking.ejs", { playerName });
 });
 
+//元からいる人だったらscoreを更新し、初見さんだったら新しく場所を作る
 app.post("/Game_Score_Send", (req, res) => {
-  console.log("Request body:", req.body);
-  const { PlayerName, Score } = req.body; // 変数名を一致させる
-  console.log("Received PlayerName:", PlayerName);
-  console.log("Received Score:", Score);
+  const { PlayerName, Score } = req.body;
 
-  // MySQLの接続プールを使用してデータを挿入
+  // 既存のスコアを取得
   pool.query(
-    "INSERT INTO score (PlayerName, Score) VALUES (?, ?)",
-    [PlayerName, Score], // ここも一致させる
+    "SELECT Score FROM score WHERE PlayerName = ?",
+    [PlayerName],
     (error, results) => {
       if (error) {
-        console.error("Error inserting data:", error);
+        console.error("Error fetching data:", error);
         return res.status(500).send("Internal Server Error");
       }
-      res.json({ message: "Success" }); // データ挿入後にリダイレクト
+
+      // 既存のスコアがある場合
+      if (results.length > 0) {
+        const existingScore = results[0].Score;
+
+        // 現在のスコアが既存のスコアよりも高い場合
+        if (Score > existingScore) {
+          // スコアを更新
+          pool.query(
+            "UPDATE score SET Score = ? WHERE PlayerName = ?",
+            [Score, PlayerName],
+            (error) => {
+              if (error) {
+                console.error("Error updating data:", error);
+                return res.status(500).send("Internal Server Error");
+              }
+              res.json({ message: "Score updated successfully" });
+            }
+          );
+        } else {
+          // スコアが既存のスコア以下の場合
+          res.json({ message: "Score not updated" });
+        }
+      } else {
+        // 新しいプレイヤーの場合
+        pool.query(
+          "INSERT INTO score (PlayerName, Score) VALUES (?, ?)",
+          [PlayerName, Score],
+          (error) => {
+            if (error) {
+              console.error("Error inserting data:", error);
+              return res.status(500).send("Internal Server Error");
+            }
+            res.json({ message: "Score inserted successfully" });
+          }
+        );
+      }
     }
   );
 });
@@ -91,4 +125,3 @@ app.post("/Game_Score_Send", (req, res) => {
 app.listen(3000, () => {
   console.log("Server is running on http://localhost:3000");
 });
-//Git接続チェック

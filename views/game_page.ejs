@@ -39,12 +39,11 @@
     <script>
       // カウントダウン開始時刻を設定（例: 10分後）
       const countdownStart = new Date();
-      //デバッグ用に31 => 5にした
-      countdownStart.setSeconds(countdownStart.getSeconds() + 5);
+      countdownStart.setSeconds(countdownStart.getSeconds() + 31);
       let timeup = true;
       let send_MySQL_message = false;
       //その場しのぎ
-      let playerName = "小指切断太郎";
+      const playerName = "<%= playerName %>";
 
       function updateCountdown() {
         const now = new Date();
