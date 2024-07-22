@@ -56,11 +56,6 @@ app.get("/ranking", (req, res) => {
   res.render("ranking.ejs", { playerName });
 });
 
-//とりあえず入れたやつ。後で消してもいい
-app.get("/game_result", (req, res) => {
-  res.render("game_rusult.ejs");
-});
-
 //名前を変更するプログラム
 app.post("/submit_username", (req, res) => {
   playerName =
@@ -87,7 +82,7 @@ app.post("/Game_Score_Send", (req, res) => {
         console.error("Error inserting data:", error);
         return res.status(500).send("Internal Server Error");
       }
-      res.redirect("/gameresult.ejs"); // データ挿入後にリダイレクト
+      res.json({ message: "Success" }); // データ挿入後にリダイレクト
     }
   );
 });
