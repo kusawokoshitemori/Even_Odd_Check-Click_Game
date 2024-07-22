@@ -39,8 +39,12 @@
     <script>
       // カウントダウン開始時刻を設定（例: 10分後）
       const countdownStart = new Date();
-      countdownStart.setSeconds(countdownStart.getSeconds() + 31);
+      //デバッグ用に31 => 5にした
+      countdownStart.setSeconds(countdownStart.getSeconds() + 5);
       let timeup = true;
+      let send_MySQL_message = false;
+      //その場しのぎ
+      let playerName = "小指切断太郎";
 
       function updateCountdown() {
         const now = new Date();
@@ -64,9 +68,36 @@
           return_title_button.classList.add("restart_title_button"); // restart_title_buttonクラスを追加
           timeup = false;
 
+          //一回だけデータを送る タイトルボタン押したらok
           if (!send_MySQL_message) {
-            //ここにデータを送る処理
+            console.log("PlayerName:", playerName); // デバッグ用
+            console.log("Score:", score); // デバッグ用
+
             send_MySQL_message = true;
+            fetch("/Game_Score_Send", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                PlayerName: playerName,
+                Score: score, // スコアを送信
+              }),
+            })
+              .then((response) => {
+                if (response.ok) {
+                  return response.json(); // レスポンスをJSONとして処理
+                } else {
+                  throw new Error("Network response was not ok.");
+                }
+              })
+              .then((data) => {
+                console.log("Success:", data);
+                window.location.href = "/game_result.ejs"; // データ送信後にリダイレクト
+              })
+              .catch((error) => {
+                console.error("Error:", error);
+              });
           }
         }
       }
