@@ -9,5 +9,11 @@
   <body>
     <h1>1~10位のプレイヤーネーム、Scoreの表示(一言コメント？？)</h1>
     <p>その下にあなたの順位(??/???)って感じ</p>
+
+    <ul>
+      <% scores.forEach(score => { %>
+      <li><%= score.PlayerName %> - <%= score.Score %></li>
+      <% }); %>
+    </ul>
   </body>
 </html>

@@ -63,8 +63,19 @@ app.post("/submit_username", (req, res) => {
   res.redirect("/"); // トップ画面にリダイレクト
 });
 
+//3位までいいスコアをresultsに入れる
 app.get("/High_Score_ranking", (req, res) => {
-  res.render("High_Score_ranking.ejs", { playerName });
+  const query =
+    "SELECT id, PlayerName, Score FROM Score ORDER BY Score DESC LIMIT 10";
+
+  pool.query(query, (error, results) => {
+    if (error) {
+      console.error(error);
+      res.status(500).send("Server Error");
+      return;
+    }
+    res.render("High_Score_ranking.ejs", { scores: results });
+  });
 });
 
 //元からいる人だったらscoreを更新し、初見さんだったら新しく場所を作る
