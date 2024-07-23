@@ -2,6 +2,9 @@
   "name": "even_odd_check-click_game-1",
   "version": "1.0.0",
   "main": "app.js",
+  "engines": {
+    "node": "16.x"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon app.js"
