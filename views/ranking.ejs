@@ -8,10 +8,13 @@
   </head>
 
   <body>
-    <ul class="heads_up_ranking">
-      <li>ランキングの登録にはユーザーネームの入力が必要です</li>
-      <li>同じプレイヤーネームの場合は良い結果が上書きされます</li>
-    </ul>
+    <div class="ranking_top_sentence_warning">
+      <div class="ranking_top_warning_image">ここに</div>
+      <ul class="ranking_top_heads_up_ranking">
+        <li>ランキングの登録にはユーザーネームの入力が必要です</li>
+        <li>同じプレイヤーネームの場合は良い結果が上書きされます</li>
+      </ul>
+    </div>
 
     <form action="/submit_username" method="POST">
       <input type="text" name="input_playerName" />
@@ -25,14 +28,13 @@
       >
         ハイスコア<br />ランキング
       </a>
-      <a class="prediction_buttom Your_Best_Score_distribution">
-        あなたの<br />ベストスコア
+      <a
+        class="prediction_buttom kusamori_another_the_work"
+        href="https://play.unity.com/ja/games/90eb8f51-c820-4a7a-bbce-5894815736c1/44ow44ot44od44kv5bsp44gx77yg44k344ol44o844og44kj44oz44kw44ky44o844og"
+      >
+        草をこして森の<br />別の作品
       </a>
     </div>
-    <%if (playerName !== "ランキングから名前を入力してください"){%>
-    <h1>ようこそ<%= playerName %>!</h1>
-    <%}else{%>
-    <h1><%= playerName %>!</h1>
-    <%}%>
+    <div class="producer_kusamori">制作者 : 草をこして森</div>
   </body>
 </html>

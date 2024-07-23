@@ -127,19 +127,38 @@ body {
 }
 
 /*ランキングのとこ*/
+.ranking_top_sentence_warning {
+  display: flex;
+}
+.ranking_top_warning_image {
+  flex: 1;
+}
+.ranking_top_heads_up_ranking {
+  flex: 7;
+}
 .High_Score_ranking {
   width: 40%;
   margin-left: 5%;
   font-size: 70px;
+  background-color: #5992c0;
+  color: black;
+  text-decoration: none;
 }
-.Your_Best_Score_distribution {
+.kusamori_another_the_work {
   width: 40%;
   margin-left: 10%;
   font-size: 70px;
+  background-color: #98ff98;
+  color: black;
+  text-decoration: none;
 }
 .ranking_display {
   display: flex;
   align-items: center;
+}
+.producer_kusamori {
+  font-size: 30px;
+  text-decoration: underline;
 }
 
 /*名前入力　変更予定*/
