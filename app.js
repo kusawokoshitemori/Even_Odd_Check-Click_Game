@@ -63,7 +63,7 @@ app.post("/submit_username", (req, res) => {
   res.redirect("/"); // トップ画面にリダイレクト
 });
 
-//3位までいいスコアをresultsに入れる
+//10位までいいスコアをresultsに入れる
 app.get("/High_Score_ranking", (req, res) => {
   const query =
     "SELECT id, PlayerName, Score FROM Score ORDER BY Score DESC LIMIT 10";

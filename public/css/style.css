@@ -52,6 +52,12 @@ body {
   background-color: #98ff98;
 }
 
+.top_page_message {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 3%;
+}
+
 /*ここからgame_page.ejs*/
 .game_page_container {
   margin-top: 80px;

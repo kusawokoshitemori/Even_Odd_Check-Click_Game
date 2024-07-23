@@ -68,7 +68,10 @@
           timeup = false;
 
           //一回だけデータを送る タイトルボタン押したらok
-          if (!send_MySQL_message) {
+          if (
+            !send_MySQL_message &&
+            playerName !== "ランキングから名前を入力してください"
+          ) {
             console.log("PlayerName:", playerName); // デバッグ用
             console.log("Score:", score); // デバッグ用
 
