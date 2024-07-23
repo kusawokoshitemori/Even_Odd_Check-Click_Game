@@ -7,13 +7,32 @@
     <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
-    <h1>1~10位のプレイヤーネーム、Scoreの表示(一言コメント？？)</h1>
-    <p>その下にあなたの順位(??/???)って感じ</p>
-
-    <ul>
-      <% scores.forEach(score => { %>
-      <li><%= score.PlayerName %> - <%= score.Score %></li>
+    <div class="ranking-container">
+      <% let rank_count = 1 %> <% scores.forEach(score => { %>
+      <div class="ranking-item">
+        <img
+          src="/images/GameRule.jpg"
+          alt="背景画像"
+          class="ranking-background"
+        />
+        <div class="ranking_rank"><%= rank_count %>.</div>
+        <% rank_count++; %>
+        <div class="ranking-info">
+          <h2><%= score.PlayerName %></h2>
+          <p>スコア: <%= score.Score %></p>
+        </div>
+      </div>
       <% }); %>
-    </ul>
+    </div>
+    <div class="High_Score_ranking_container">
+      <div class="ranking_return_title big_button" onclick="return_title()">
+        タイトルに戻る
+      </div>
+      <script>
+        function return_title() {
+          window.location.href = "/";
+        }
+      </script>
+    </div>
   </body>
 </html>
