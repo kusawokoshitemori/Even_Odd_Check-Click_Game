@@ -129,13 +129,42 @@ body {
 /*ランキングのとこ*/
 .ranking_top_sentence_warning {
   display: flex;
+  margin-left: 5%;
 }
 .ranking_top_warning_image {
   flex: 1;
 }
 .ranking_top_heads_up_ranking {
-  flex: 7;
+  flex: 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  list-style-type: none;
+  font-size: 35px;
 }
+
+.username_change_container {
+  margin: 3% 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+}
+.username_input label {
+  font-size: 45px;
+}
+.username_input_custom {
+  width: 25%;
+  border-radius: 6px;
+  padding: 20px;
+  font-size: 30px;
+  width: 60%;
+}
+.playerNameInput_button {
+  padding: 25px;
+  border-radius: 4px;
+}
+
 .High_Score_ranking {
   width: 40%;
   margin-left: 5%;
@@ -159,6 +188,10 @@ body {
 .producer_kusamori {
   font-size: 30px;
   text-decoration: underline;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 3%;
+  margin-top: 1%;
 }
 
 /*名前入力　変更予定*/

@@ -9,17 +9,23 @@
 
   <body>
     <div class="ranking_top_sentence_warning">
-      <div class="ranking_top_warning_image">ここに</div>
+      <img class="ranking_top_warning_image" src="/images/warning_mark-removebg-preview.png"alt="注意のイラスト"></img>
       <ul class="ranking_top_heads_up_ranking">
         <li>ランキングの登録にはユーザーネームの入力が必要です</li>
         <li>同じプレイヤーネームの場合は良い結果が上書きされます</li>
       </ul>
     </div>
 
-    <form action="/submit_username" method="POST">
-      <input type="text" name="input_playerName" />
-      <button type="submit">値を取得</button>
-    </form>
+    <div class="username_change_container">
+      <form action="/submit_username" method="POST">
+        <div class="username_input">
+          <label for="playerNameInput">プレイヤー名:</label>
+          <input type="text" class="username_input_custom" name="input_playerName" />
+          <button type="submit" class="playerNameInput_button">これにする</button>
+        </div>
+      </form>
+    </div>
+
 
     <div class="ranking_display">
       <a
