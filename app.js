@@ -10,6 +10,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // 'views'ディレクトリのパスを指定
 const path = require("path");
 console.log(path.join(__dirname, "views"));
+app.set("views", path.join(__dirname, "views"));
+
+// 静的ファイルの提供 ローカル環境以外でも動くように
+app.use(express.static(path.join(__dirname, "public")));
 
 // プレイヤーネームとスコアをどこからでも使えるようにする
 let playerName = "ランキングから名前を入力してください";
@@ -30,18 +34,6 @@ const pool = mysql.createPool({
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
 });
-//接続プールが動くかチェック
-connection.connect((err) => {
-  if (err) {
-    console.error("Error connecting to the database:", err.stack);
-    return;
-  }
-  console.log("Connected to database.");
-  connection.end();
-});
-
-// 静的ファイルの提供 ローカル環境以外でも動くように
-app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/", (req, res) => {
   res.render("top.ejs", { playerName });
