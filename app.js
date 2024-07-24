@@ -16,7 +16,6 @@ let now_game_score = 0;
 
 // テンプレートエンジンとしてEJSを設定
 app.set("view engine", "ejs");
-app.set("views", "views");
 
 // JSON ボディを解析するミドルウェア
 app.use(express.json());
