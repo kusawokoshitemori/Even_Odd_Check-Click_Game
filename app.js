@@ -30,16 +30,15 @@ const pool = mysql.createPool({
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
 });
-/* 接続プールが動くかチェック
-pool.getConnection((err, connection) => {
+//接続プールが動くかチェック
+connection.connect((err) => {
   if (err) {
-    console.error("データベースへの接続に失敗しました:", err);
+    console.error("Error connecting to the database:", err.stack);
     return;
   }
-  console.log("データベースに接続しました");
-  // 接続を解放
-  connection.release();
-});*/
+  console.log("Connected to database.");
+  connection.end();
+});
 
 // 静的ファイルの提供 ローカル環境以外でも動くように
 app.use(express.static(path.join(__dirname, "public")));
