@@ -7,6 +7,9 @@ const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// 'views'ディレクトリのパスを指定
+app.set("views", path.join(__dirname, "views"));
+
 // プレイヤーネームとスコアをどこからでも使えるようにする
 let playerName = "ランキングから名前を入力してください";
 let now_game_score = 0;
