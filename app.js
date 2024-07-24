@@ -25,12 +25,11 @@ app.use(express.json());
 const pool = mysql.createPool({
   //同時接続数
   connectionLimit: 10,
-  host: "localhost",
-  user: "kusa",
-  password: "kusawokoshitemori",
-  database: "Even_Odd_Check_Game_Score",
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
 });
-
 /* 接続プールが動くかチェック
 pool.getConnection((err, connection) => {
   if (err) {
