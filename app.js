@@ -40,8 +40,8 @@ pool.getConnection((err, connection) => {
   connection.release();
 });*/
 
-// 静的ファイルを提供するための設定を追加
-app.use(express.static("public"));
+// 静的ファイルの提供 ローカル環境以外でも動くように
+app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/", (req, res) => {
   res.render("top.ejs", { playerName });
