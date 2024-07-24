@@ -1,5 +1,3 @@
-// 環境変数の使用
-const apiKey = process.env.API_KEY;
 const express = require("express");
 const bodyParser = require("body-parser");
 const mysql = require("mysql");
