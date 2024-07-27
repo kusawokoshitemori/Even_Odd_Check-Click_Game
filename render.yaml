@@ -3,7 +3,7 @@ services:
     name: Even_Odd_Check_Game
     env: node
     buildCommand: npm install
-    startCommand: npm app.js
+    startCommand: node app.js
     repo: https://github.com/kusawokoshitemori/Even_Odd_Check-Click_Game
     branch: main
     plan: free
